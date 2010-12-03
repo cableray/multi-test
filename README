@@ -1,0 +1,16 @@
+Works as follows (or will when done)
+
+Parses command line args
+
+if num_procs is > 1
+	Uses Runtime.exec() on itself to spawn copies of its self, but with the num_procs argument as 1
+else
+	creates the required number of threads of the appropriate type.
+
+IOThreads Sleep for a random amount of time, simulate waiting on an I/O device
+
+CPU threads count up to a specified number, and don't sleep, so will execute until preempted (require the java implementation to use preemptive kernel threads)
+
+Both thread types store the elapsed time it took to complete their tasks
+
+After threads are done, the parent should output their data (probably to a file).
