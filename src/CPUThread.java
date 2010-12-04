@@ -1,7 +1,10 @@
 public class CPUThread extends Thread {
 
-	int duration;
-
+	long duration;
+	
+	protected CPUThread(){
+		duration=1;
+	}
 	CPUThread(String duration) {
 		if (duration.equals("S")) {
 			this.duration = shortdur;
@@ -16,21 +19,21 @@ public class CPUThread extends Thread {
 		}
 	}
 
-	final static int shortdur = 100, longdur = 10000, mediumdur = 1000;
+	protected static long shortdur = 10000, longdur = 10000000, mediumdur = 100000;
 
 	public void run() {
 		final long startTime = System.nanoTime();
 		final long endTime;
-		for (int i = 0; i < duration; i++) {
-//			try {
-//				wait();
+		for (long i = 0; i < duration; i++) {
+//			try { //not really necessary
+//				sleep(0);
 //			} catch (InterruptedException e) {
 //				// TODO Auto-generated catch block
 //				//e.printStackTrace();
 //			}
 		}
 		endTime = System.nanoTime();
-		elapsed_time = startTime - endTime;
+		elapsed_time = endTime-startTime;
 	}
 
 	protected long elapsed_time;
